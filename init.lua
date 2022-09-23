@@ -5,5 +5,4 @@ require 'user.keymaps'
 require 'user.treesitter'
 require 'user.lsp'
 require 'user.completion'
-
 require 'user.evil_lualine'
