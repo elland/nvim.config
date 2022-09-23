@@ -36,6 +36,7 @@ return packer.startup(function(use)
   use 'GustavoPrietoP/doom-themes.nvim'
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "EdenEast/nightfox.nvim"
 
 
   -- Completions plugins
@@ -50,6 +51,9 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
+
+  -- magit for neovim
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- status line
   use {
@@ -114,6 +118,9 @@ return packer.startup(function(use)
   else
     require('nvim_comment').setup()
     -- require('tree-sitter').setup()
+    require('neogit').setup {
+      use_magit_keybindings = true,
+    }
     require('lualine').setup {
       options = {
         theme = 'auto',

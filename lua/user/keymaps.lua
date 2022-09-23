@@ -38,6 +38,8 @@ keymap("n", "<S-j>", ":bprevious<CR>", opts)
 -- Press jk fast to enter normal mode
 keymap("i", "jk", "<ESC>", opts)
 
+-- neogit (magit)
+keymap('n', '<leader>gg', ':Neogit<CR>', opts)
 
 -- Telescope / find,r
 keymap('n', '<leader>fr', ':Telescope oldfiles<CR>', opts)

@@ -9,7 +9,7 @@ configs.setup {
     "toml",
   },
   sync_install = false, 
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ignore_install = { "haskell" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
