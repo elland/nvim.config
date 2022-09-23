@@ -52,6 +52,10 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
 
+  -- Snips
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
   -- magit for neovim
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
