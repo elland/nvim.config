@@ -33,6 +33,7 @@ return packer.startup(function(use)
 
   -- Colour schemes
   use 'mhartington/oceanic-next'
+  use 'GustavoPrietoP/doom-themes.nvim'
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
 
@@ -57,7 +58,8 @@ return packer.startup(function(use)
   }
 
   use {
-    'nvim-treesitter/nvim-treesitter'
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate",
   }
 
   -- Fuzzy finder
@@ -109,8 +111,9 @@ return packer.startup(function(use)
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
-  -- else
-  --   require('nvim_comment').setup()
+  else
+    require('nvim_comment').setup()
+    -- require('tree-sitter').setup()
     require('lualine').setup {
       options = {
         theme = 'auto',
