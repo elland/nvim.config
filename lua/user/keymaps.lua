@@ -37,8 +37,8 @@ keymap("n", "¬", ":vertical resize -2<CR>", opts)
 keymap("n", "˙", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-k>", ":bnext<CR>", opts)
-keymap("n", "<S-j>", ":bprevious<CR>", opts)
+keymap("n", "<D-k>", ":bnext<CR>", opts)
+keymap("n", "<D-j>", ":bprevious<CR>", opts)
 keymap("n", "<leader>bk", ":bd<CR>", optd("Kill current buffer"))
 keymap("n", "<leader>ba", ":%bd|e#|bd#<CR>", optd("Kill all but buffer"))
 
