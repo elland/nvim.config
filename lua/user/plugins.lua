@@ -137,6 +137,12 @@ return packer.startup(function(use)
       use_magit_keybindings = false,
       disable_commit_confirmation = true,
     }
+    require('nightfox').setup {
+      options = {
+        -- transparent = true,
+        terminal_colors = false,
+      }
+    }
     -- require('lint').linters_by_ft = {
     --   haskell = {'hlint'}
     -- }
@@ -147,19 +153,19 @@ return packer.startup(function(use)
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = { 'fileformat', 'filename', },
         lualine_c = { '' },
         lualine_x = {
-          { '(function()return " "end)()',
-            icon = '',
+          { 'diagnostics',
+            icon = ' ',
             color = function()
               return { fg = lsp_colour(), bg = '#192f2a' }
             end,
             separator = { left = '' },
           },
         },
-        lualine_y = { 'location', 'progress' },
-        lualine_z = { 'filename', 'fileformat' },
+        lualine_y = { 'branch', 'diff' },
+        lualine_z = { 'location', 'progress' },
       },
       inactive_sections = {
         lualine_a = {},
