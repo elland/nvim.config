@@ -1,8 +1,8 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 local function optd(d)
-  return { noremap = true, silent = true, desc = d}
+  return { noremap = true, silent = true, desc = d }
 end
 
 -- Shorten function name
@@ -48,8 +48,8 @@ keymap('n', '<leader>gg', ':Neogit<CR>', optd("Open git"))
 -- Telescope / find,r
 keymap('n', '<leader>,', ':Telescope buffers<CR>', optd("Search open buffers"))
 keymap('n', '<leader>.', ':Telescope git_files<CR>', optd("Search file in project"))
-keymap('n','<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
-keymap('n','<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
+keymap('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
+keymap('n', '<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
 keymap('n', '<leader>fw', ':Telescope live_grep<CR>', optd("Search in project files"))
 
 keymap('n', '<leader>ht', ':Telescope colorscheme<CR>', optd("Search colour schemes"))
@@ -58,10 +58,29 @@ keymap('n', '<leader>;', ':Telescope commands<CR>', optd("Search all commands"))
 
 keymap('n', '<leader>m', ':Telescope marks<CR>', optd("Search all marks"))
 
+---- Telescope + LSP
 keymap('n', '<leader>lq', ':Telescope quickfix<CR>', optd("Search all quickfix suggestions"))
 keymap('n', '<leader>lr', ':Telescope lsp_references<CR>', optd("Search all references"))
 keymap('n', '<leader>lc', ':Telescope lsp_incoming_calls<CR>', optd("Search callers"))
 keymap('n', '<leader>lh', ':Telescope lsp_outgoing_calls<CR>', optd("Search callees"))
 keymap('n', '<leader>ld', ':Telescope lsp_implementations<CR>', optd("Search implementations"))
 
+-- LSP
 
+keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", optd("Set location list in window")) -- what?
+
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", optd("Go to declaration"))
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", optd("Go to definition"))
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR> <cmd>lua vim.lsp.buf.hover()<CR>", optd("Hover type info"))
+keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", optd("Go to implementation"))
+keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", optd("Show signature help"))
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", optd("Rename"))
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", optd("Show references"))
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", optd("Code actions"))
+keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float()<CR>", optd("Show diagnostics"))
+keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', optd("Go to next issue"))
+keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', optd("Go to previous issue"))
+keymap('n', '<space>f', "<cmd>lua vim.lsp.buf.formatting()<CR>", optd("Format buffer"))
+
+vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]

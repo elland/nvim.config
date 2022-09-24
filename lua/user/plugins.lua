@@ -52,6 +52,9 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
 
+  -- Lint
+  use 'mfussenegger/nvim-lint'
+
   -- Snips
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -125,6 +128,9 @@ return packer.startup(function(use)
     require('neogit').setup {
       use_magit_keybindings = true,
     }
+    -- require('lint').linters_by_ft = {
+    --   haskell = {'hlint'}
+    -- }
     require('lualine').setup {
       options = {
         theme = 'auto',
