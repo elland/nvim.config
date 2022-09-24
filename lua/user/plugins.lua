@@ -134,7 +134,8 @@ return packer.startup(function(use)
     require('nvim_comment').setup()
     -- require('tree-sitter').setup()
     require('neogit').setup {
-      use_magit_keybindings = true,
+      use_magit_keybindings = false,
+      disable_commit_confirmation = true,
     }
     -- require('lint').linters_by_ft = {
     --   haskell = {'hlint'}
