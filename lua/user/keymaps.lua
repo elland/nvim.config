@@ -71,7 +71,7 @@ keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", optd("Set l
 
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", optd("Go to declaration"))
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", optd("Go to definition"))
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR> <cmd>lua vim.lsp.buf.hover()<CR>", optd("Hover type info"))
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR><cmd>lua vim.lsp.buf.hover()<CR>", optd("Hover type info"))
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", optd("Go to implementation"))
 keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", optd("Show signature help"))
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", optd("Rename"))

@@ -15,6 +15,14 @@ if not status_ok then
   return
 end
 
+local function lsp_colour()
+  if next(vim.lsp.get_active_clients()) == nil then
+    return '#ec5f67'
+  else
+    return '#98be65'
+  end
+end
+
 -- Have packer use a popup window
 packer.init {
   display = {
@@ -85,7 +93,7 @@ return packer.startup(function(use)
 
   -- Telescope file brizer
   use {
-    "nvim-telescope/telescope-file-browser.nvim", 
+    "nvim-telescope/telescope-file-browser.nvim",
     config = function()
       require("telescope").setup {
         extensions = {
@@ -111,10 +119,10 @@ return packer.startup(function(use)
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
     end
   }
 
@@ -134,7 +142,32 @@ return packer.startup(function(use)
     require('lualine').setup {
       options = {
         theme = 'auto',
-      }
+        globalstatus = true,
+      },
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { '' },
+        lualine_x = {
+          { '(function()return " "end)()',
+            icon = '',
+            color = function()
+              return { fg = lsp_colour(), bg = '#192f2a' }
+            end,
+            separator = { left = '' },
+          },
+        },
+        lualine_y = { 'location', 'progress' },
+        lualine_z = { 'filename', 'fileformat' },
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {}
+      },
     }
   end
 end)
