@@ -1,1 +1,3 @@
-## My neovim config
+# My Neovim config
+
+Work in progress.

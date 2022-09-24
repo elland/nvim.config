@@ -1,4 +1,5 @@
 local o = vim.o
+local g = vim.g
 
 o.backup = false
 o.clipboard = 'unnamedplus'
@@ -14,7 +15,7 @@ o.updatetime = 201
 o.scrolloff = 8
 o.sidescrolloff = 8
 
--- Editing 
+-- Editing
 o.number = true
 o.numberwidth = 4
 o.wrap = false
@@ -32,7 +33,7 @@ o.hlsearch = true
 o.mouse = 'a' -- allow mouse in term
 o.pumheight = 10 -- popup menu height
 o.showmode = false -- no more -- INSERT --
-o.smartindent = true 
+o.smartindent = true
 
 o.expandtab = true
 o.tabstop = 2
@@ -71,3 +72,12 @@ vim.opt.shortmess:append "c"
 --   augroup end
 -- ]]
 
+
+-- Neovide fun
+o.guifont = "Hasklug Nerd Font Mono"
+
+g.neovide_refresh_rate = 60
+g.neovide_refresh_rate_idle = 1
+g.neovide_transparency = 0.99
+g.neovide_remember_window_size = true
+g.neovide_cursor_vfx_mode = "railgun"

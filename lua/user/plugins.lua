@@ -141,6 +141,11 @@ return packer.startup(function(use)
       options = {
         -- transparent = true,
         terminal_colors = false,
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        }
       }
     }
     -- require('lint').linters_by_ft = {

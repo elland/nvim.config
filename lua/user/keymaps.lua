@@ -28,6 +28,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap('n', "<leader>scd", ":cd %:p:h<CR>", optd("Set working directory"))
+
 -- Resize with arrows
 keymap("n", "˚", ":resize +2<CR>", opts)
 keymap("n", "∆", ":resize -2<CR>", opts)
@@ -37,6 +39,8 @@ keymap("n", "˙", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-k>", ":bnext<CR>", opts)
 keymap("n", "<S-j>", ":bprevious<CR>", opts)
+keymap("n", "<leader>bk", ":bd<CR>", optd("Kill current buffer"))
+keymap("n", "<leader>ba", ":%bd|e#|bd#<CR>", optd("Kill all but buffer"))
 
 -- Insert --
 -- Press jk fast to enter normal mode
