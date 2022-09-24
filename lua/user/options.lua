@@ -74,7 +74,7 @@ vim.opt.shortmess:append "c"
 
 
 -- Neovide fun
-o.guifont = "Hasklug Nerd Font Mono"
+o.guifont = "Hasklug Nerd Font"
 
 g.neovide_refresh_rate = 60
 g.neovide_refresh_rate_idle = 1

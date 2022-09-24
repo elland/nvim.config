@@ -36,6 +36,7 @@ packer.init {
 return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
@@ -46,7 +47,6 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "EdenEast/nightfox.nvim"
 
-
   -- Completions plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -54,7 +54,12 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "hrsh7th/cmp-nvim-lsp" -- cmdline completions
 
+  -- Editing aids
   use 'terrortylor/nvim-comment'
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
   -- LSP
   use "neovim/nvim-lspconfig"
@@ -132,7 +137,7 @@ return packer.startup(function(use)
     require("packer").sync()
   else
     require('nvim_comment').setup()
-    -- require('tree-sitter').setup()
+
     require('neogit').setup {
       use_magit_keybindings = false,
       disable_commit_confirmation = true,

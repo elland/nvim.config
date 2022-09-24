@@ -82,8 +82,8 @@ keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", optd("Rename"))
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", optd("Show references"))
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", optd("Code actions"))
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float()<CR>", optd("Show diagnostics"))
-keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', optd("Go to next issue"))
-keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', optd("Go to previous issue"))
+keymap("n", "]e", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', optd("Go to next issue"))
+keymap("n", "[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', optd("Go to previous issue"))
 keymap('n', '<space>f', "<cmd>lua vim.lsp.buf.formatting()<CR>", optd("Format buffer"))
 
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
