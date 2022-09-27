@@ -46,6 +46,8 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "EdenEast/nightfox.nvim"
+  use 'shaunsingh/solarized.nvim'
+  use 'shaunsingh/nord.nvim'
 
   -- Completions plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
