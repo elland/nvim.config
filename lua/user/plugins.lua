@@ -167,7 +167,11 @@ return packer.startup(function(use)
         lualine_b = {
           'fileformat',
           { 'filename',
-            show_filename_only = false },
+            path = 1,
+            symbols = {
+              modified = ' ●',
+            },
+          },
         },
         lualine_c = { '' },
         lualine_x = {
