@@ -164,7 +164,11 @@ return packer.startup(function(use)
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'fileformat', 'filename', },
+        lualine_b = {
+          'fileformat',
+          { 'filename',
+            show_filename_only = false },
+        },
         lualine_c = { '' },
         lualine_x = {
           { 'diagnostics',

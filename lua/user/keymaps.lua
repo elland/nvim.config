@@ -55,6 +55,7 @@ keymap('n', '<leader>.', ':Telescope git_files<CR>', optd("Search file in projec
 keymap('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
 keymap('n', '<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
 keymap('n', '<leader>fw', ':Telescope live_grep<CR>', optd("Search in project files"))
+keymap('n', '<leader>fb', ':Telescope buffers<CR>', optd("Search in open buffers"))
 
 keymap('n', '<leader>ht', ':Telescope colorscheme<CR>', optd("Search colour schemes"))
 

@@ -7,9 +7,9 @@ require("user.lsp.lsp-installer")
 require("user.lsp.handlers").setup()
 
 require('lspconfig').hls.setup  {
-    settings = {
-        haskell = {
-            hlintOn = true,
-        }
-     }
+    -- settings = {
+    --     haskell = {
+    --         hlintOn = true,
+    --     }
+    --  }
 }
