@@ -33,8 +33,8 @@ keymap('n', "<leader>scd", ":cd %:p:h<CR>", optd("Set working directory"))
 -- Resize with arrows
 keymap("n", "˚", ":resize +2<CR>", opts)
 keymap("n", "∆", ":resize -2<CR>", opts)
-keymap("n", "¬", ":vertical resize -2<CR>", opts)
-keymap("n", "˙", ":vertical resize +2<CR>", opts)
+keymap("n", "¬", ":vertical resize +2<CR>", opts)
+keymap("n", "˙", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<D-k>", ":bnext<CR>", opts)
