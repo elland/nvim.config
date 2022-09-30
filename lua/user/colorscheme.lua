@@ -1,4 +1,4 @@
-local colorscheme = "duskfox"
+local colorscheme = "nightfox"
 local g = vim.g
 
 -- Nightfox config
