@@ -5,6 +5,7 @@ require 'user.keymaps'
 require 'user.treesitter'
 require 'user.lsp'
 require 'user.completion'
+require 'user.filetypes'
 -- require 'user.evil_lualine'
 
 -- Restore caret position in file
