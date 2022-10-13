@@ -49,7 +49,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- neogit (magit)
 keymap('n', '<leader>gg', ':Neogit<CR>', optd("Open git"))
 
--- Telescope / find,r
+-- Telescope / finder
 keymap('n', '<leader>,', ':Telescope buffers<CR>', optd("Search open buffers"))
 keymap('n', '<leader>.', ':Telescope git_files<CR>', optd("Search file in project"))
 keymap('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
@@ -62,6 +62,8 @@ keymap('n', '<leader>ht', ':Telescope colorscheme<CR>', optd("Search colour sche
 keymap('n', '<leader>;', ':Telescope commands<CR>', optd("Search all commands"))
 
 keymap('n', '<leader>m', ':Telescope marks<CR>', optd("Search all marks"))
+
+keymap('n', '<ESC><ESC>', ':nohlsearch<CR>', opts)
 
 ---- Telescope + LSP
 keymap('n', '<leader>lq', ':Telescope quickfix<CR>', optd("Search all quickfix suggestions"))
