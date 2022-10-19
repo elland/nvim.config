@@ -15,20 +15,20 @@ require('nightfox').setup {
 }
 
 local pal = {
-  all = {
-    -- bg1 = '#1b2b34',
+  nightfox = {
+    bg1     = '#14232d',
     -- bg2 = '#343d46',
     -- bg3 = '#65737e',
-    -- bg4 = '#4f5b66',
+    -- bg4     = '#4f5b66',
     --
-    -- red     = '#ec5f67',
-    -- green   = '#99c794',
-    -- yellow  = '#fac863',
-    -- blue    = '#6699cc',
-    -- magenta = '#c594c5',
-    -- cyan    = '#62b3b2',
-    -- orange  = '#f99157',
-    -- pink    = '#ab7967',
+    red     = '#ec5f67',
+    green   = '#99c794',
+    yellow  = '#fac863',
+    blue    = '#6699cc',
+    magenta = '#c594c5',
+    cyan    = '#62b3b2',
+    orange  = '#f99157',
+    pink    = '#ab7967',
   },
 }
 
