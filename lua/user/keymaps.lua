@@ -88,6 +88,7 @@ keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float()<CR>", optd("Show
 keymap("n", "]e", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', optd("Go to next issue"))
 keymap("n", "[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', optd("Go to previous issue"))
 keymap('n', '<space>f', "<cmd>lua vim.lsp.buf.formatting()<CR>", optd("Format buffer"))
+keymap('n', '<space>q', ":!ormolu -i %<CR>", optd("Format buffer with ormolu"))
 
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
