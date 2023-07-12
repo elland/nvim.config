@@ -56,12 +56,24 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "hrsh7th/cmp-nvim-lsp" -- cmdline completions
 
+  use "towolf/vim-helm" -- helmfiles
+
   -- Editing aids
   use 'terrortylor/nvim-comment'
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+
+  use({
+    "kylechui/nvim-surround",
+    -- tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  }) 
 
   use {
     "folke/todo-comments.nvim",

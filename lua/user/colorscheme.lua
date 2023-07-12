@@ -1,4 +1,5 @@
 local colorscheme = "nightfox"
+-- local colorscheme = "dawnfox"
 local g = vim.g
 
 -- Nightfox config
@@ -40,10 +41,7 @@ local specs = {
   }
 }
 
-local overr = require('nightfox').override
-overr.palettes(pal)
-overr.specs(specs)
-
+require("nightfox").setup { palettes = pal, specs = specs }
 
 -- Solarized light theme config
 g.solarized_italic_comments = true
