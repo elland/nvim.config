@@ -6,6 +6,6 @@ return {
 
     "nvim-telescope/telescope.nvim", -- optional
   },
-  config = true
-    -- vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Split window vertically" })
+  config = true,
+  vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { desc = "Split window vertically" })
 }
