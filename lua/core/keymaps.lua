@@ -1,5 +1,3 @@
-vim.g.mapleader = ','
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -19,7 +17,7 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>ta", "<cmd>tabo<CR>", { desc = "Close all but curr ent tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab"})
+keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 -- Normal --
 -- Better window navigation
@@ -36,11 +34,10 @@ keymap.set("n", "<leader>ba", ":%bd|e#|bd#<CR>", optd("Kill all but buffer"))
 
 
 -- Telescope / finder
-keymap.set('n', '<leader>,', ':Telescope buffers<CR>', optd("Search open buffers"))
-keymap.set('n', '<leader>.', ':Telescope git_files<CR>', optd("Search file in project"))
+keymap.set('n', '<leader>.', ':Telescope git_files<CR>', optd("Search git tracked files in project"))
+keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', optd("Search file in project"))
 keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
 keymap.set('n', '<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
-keymap.set('n', '<leader>fw', ':Telescope live_grep<CR>', optd("Search in project files"))
 keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', optd("Search in open buffers"))
 
 
