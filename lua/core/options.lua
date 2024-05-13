@@ -28,6 +28,3 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.swapfile = false
-
--- We want helm syntax for yaml
-vim.treesitter.language.register("helm", { "yaml", "yml" })

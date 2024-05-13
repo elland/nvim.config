@@ -38,7 +38,7 @@ keymap.set('n', '<leader>.', ':Telescope git_files<CR>', optd("Search git tracke
 keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', optd("Search file in project"))
 keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
 keymap.set('n', '<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
-keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', optd("Search in open buffers"))
+keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", optd("Search open buffers"))
 
 
 keymap.set('n', '<leader>ht', ':Telescope colorscheme<CR>', optd("Search colour schemes"))
