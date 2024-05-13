@@ -9,25 +9,17 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-    local actions = require("telescope.actions")
 
     telescope.setup({
       defaults = {
         path_display = { "smart" },
-        mappings = {
-          i = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-          },
-        },
       },
     })
 
     telescope.load_extension("fzf")
 
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap
 
     keymap.set("n", "<leader>f", "", { desc = "Fuzzy find files" })
 
