@@ -314,6 +314,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FUTUREWORK<CR>', { desc = '[S]earch todos' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>ht', builtin.colorscheme, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -712,6 +713,11 @@ require('lazy').setup({
     end,
   },
 
+  ------------------------
+  --
+  --    COLOURS
+  --
+  -----------------
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -727,8 +733,12 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
-  { 'EdenEast/nightfox.nvim', priority = 1000 },
+  { 'EdenEast/nightfox.nvim', priority = 1000, lazy = false },
+  { 'wadackel/vim-dogrun', lazy = false },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, lazy = false, opts = ... },
+  { 'nyoom-engineering/oxocarbon.nvim', priority = 1000, lazy = false },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
+  { 'projekt0n/github-nvim-theme', lazy = false, priority = 1000 },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
