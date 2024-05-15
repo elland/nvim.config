@@ -25,6 +25,6 @@ require("lazy").setup({ { import = 'plugins' }, { import = 'plugins.lsp' } }, {
 
 --------------------------------------------------------------------
 
-vim.cmd([[colorscheme nightfox]])
+vim.cmd([[colorscheme duskfox]])
 
 require("core")

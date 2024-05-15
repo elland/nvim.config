@@ -12,8 +12,18 @@ return {
 
     telescope.setup({
       defaults = {
-        -- layout_strategy = "vertical",
+        layout_strategy = "flex",
       },
+
+      pickers = {
+        find_files = { theme = "ivy" },
+        oldfiles = { theme = "ivy" },
+        buffers = { theme = "ivy" },
+        colorscheme = { theme = "ivy" },
+        git_files = { theme = "ivy" },
+        live_grep = { theme = "ivy" }
+      }
+
     })
 
     telescope.load_extension("fzf")

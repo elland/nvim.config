@@ -21,10 +21,14 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
+opt.updatetime = 250
+
 opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+opt.inccommand = 'split'
+opt.scrolloff = 10
 
 opt.swapfile = false
