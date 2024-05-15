@@ -35,10 +35,13 @@ keymap.set("n", "<leader>ba", ":%bd|e#|bd#<CR>", optd("Kill all but buffer"))
 
 -- Telescope / finder
 keymap.set('n', '<leader>.', ':Telescope git_files<CR>', optd("Search git tracked files in project"))
-keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', optd("Search file in project"))
+keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', optd("Live grep in project"))
 keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>', optd("Search open files"))
 keymap.set('n', '<leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', optd("Search in buffer"))
-keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", optd("Search open buffers"))
+keymap.set('n', '<leader>fb', ":Telescope buffers<CR>", optd("Search open buffers"))
+keymap.set('n', '<leader>fm', ":Telescope marks<CR>", optd("Search marks"))
+keymap.set('n', '<leader>f,', ":Telescope resume<CR>", optd("Resume last search"))
+keymap.set('n', '<leader>fq', ":Telescope quickfix<CR>", optd("Search quickfix list"))
 
 
 keymap.set('n', '<leader>ht', ':Telescope colorscheme<CR>', optd("Search colour schemes"))

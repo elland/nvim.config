@@ -38,7 +38,7 @@ harpoon:extend({
 
 vim.keymap.set("n", "<leader>hm", ":Telescope harpoon marks<CR>", { desc = "Open harpoon marks" })
 
-vim.keymap.set("n", "<C-e", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
 vim.keymap.set("n", "<leader>,", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
   { desc = "List buffers with harpoon" })
 
