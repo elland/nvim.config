@@ -18,6 +18,8 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
+vim.opt.termguicolors = true
+
 -- Remember cursor position
 vim.cmd [[
       augroup vimrc-remember-cursor-position
@@ -160,7 +162,7 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',            opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -195,7 +197,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -247,7 +249,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -285,6 +287,7 @@ require('lazy').setup({
           colorscheme = { theme = 'ivy' },
           git_files = { theme = 'ivy' },
           live_grep = { theme = 'ivy' },
+          lsp_refrences = { theme = 'ivy' },
           commands = { theme = 'ivy' },
           grep_string = { theme = 'ivy' },
           current_buffer_fuzzy_find = { theme = 'ivy' },
@@ -339,6 +342,12 @@ require('lazy').setup({
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
     end,
+  },
+
+  -- Prettier UI elements?
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
   },
 
   { -- LSP Configuration & Plugins
@@ -435,10 +444,34 @@ require('lazy').setup({
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          -- map('<C-k>', function()
+          --   local params = vim.lsp_util.make_position_params()
+          --   return vim.lsp.buf_request(0, 'textDocument/hover', params, nil)
+          -- end, 'Hover Documentation')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+
+          -- Better UI
+          local border = 'single'
+          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+            vim.lsp.handlers.hover, {
+              border = border,
+              ft = 'haskell',
+            }
+          )
+
+          vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+            vim.lsp.handlers.signaturehelp, {
+              border = border
+            }
+          )
+
+          vim.diagnostic.config {
+            float = { border = border }
+          }
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -497,38 +530,32 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
-
-        lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+      local lspconfig = require("lspconfig")
+      lspconfig.hls.setup {
+        filetypes = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' }
+      }
+      lspconfig.lua_ls.setup {
+        -- cmd = {...},
+        -- filetypes = { ...},
+        -- capabilities = {},
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
             },
+            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+            -- diagnostics = { disable = { 'missing-fields' } },
           },
         },
-
-        hls = {
-          filetypes = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
-        },
+      }
+      lspconfig.helm_ls.setup {
+        settings = {
+          ['helm-ls'] = {
+            yamlls = {
+              path = "yaml-language-server",
+            }
+          }
+        }
       }
 
       -- Ensure the servers and tools above are installed
@@ -541,10 +568,9 @@ require('lazy').setup({
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
+      -- vim.list_extend(ensure_installed, {
+      --   'stylua', -- Used to format Lua code
+      -- })
       -- require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       -- require('mason-lspconfig').setup {
@@ -733,22 +759,22 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-  { 'EdenEast/nightfox.nvim', priority = 1000, lazy = false },
-  { 'wadackel/vim-dogrun', lazy = false },
-  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, lazy = false, opts = ... },
-  { 'nyoom-engineering/oxocarbon.nvim', priority = 1000, lazy = false },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
-  { 'projekt0n/github-nvim-theme', lazy = false, priority = 1000 },
+  { 'EdenEast/nightfox.nvim',           priority = 1000,     lazy = false },
+  { 'wadackel/vim-dogrun',              lazy = false },
+  { 'ellisonleao/gruvbox.nvim',         priority = 1000,     config = true,                              lazy = false,            opts = ... },
+  { 'nyoom-engineering/oxocarbon.nvim', priority = 1000,     lazy = false },
+  { 'catppuccin/nvim',                  name = 'catppuccin', priority = 1000,                            lazy = false },
+  { 'projekt0n/github-nvim-theme',      lazy = false,        priority = 1000 },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim',         event = 'VimEnter',  dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   -- Neogit, magit for neovim
   {
     'NeogitOrg/neogit',
     dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
+      'nvim-lua/plenary.nvim',         -- required
+      'sindrets/diffview.nvim',        -- optional - Diff integration
 
       'nvim-telescope/telescope.nvim', -- optional
     },
