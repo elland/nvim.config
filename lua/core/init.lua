@@ -1,3 +1,3 @@
-require('core.nifty')
-require('core.mappings')
-require('core.options')
+require 'core.nifty'
+require 'core.mappings'
+require 'core.options'

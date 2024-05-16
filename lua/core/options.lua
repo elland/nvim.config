@@ -80,11 +80,11 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 
 -- THICK borders between panes
 o.fillchars = {
-  horiz     = '━',
-  horizup   = '┻',
+  horiz = '━',
+  horizup = '┻',
   horizdown = '┳',
-  vert      = '┃',
-  vertleft  = '┫',
+  vert = '┃',
+  vertleft = '┫',
   vertright = '┣',
   verthoriz = '╋',
 }
