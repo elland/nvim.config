@@ -75,8 +75,9 @@ o.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 o.hlsearch = true
 
-vim.cmd.colorscheme 'catppuccin-mocha'
+-- vim.cmd.colorscheme 'catppuccin-mocha'
 -- vim.cmd.colorscheme 'carbonfox'
+vim.cmd.colorscheme 'oxocarbon'
 
 -- THICK borders between panes
 o.fillchars = {

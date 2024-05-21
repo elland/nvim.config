@@ -138,6 +138,10 @@ return { -- LSP Configuration & Plugins
     local lspconfig = require 'lspconfig'
     lspconfig.hls.setup {
       filetypes = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+      plugin = {
+        stan = { globalOn = false },
+        semanticTokens = { globalOn = true },
+      }
     }
     lspconfig.lua_ls.setup {
       -- cmd = {...},
