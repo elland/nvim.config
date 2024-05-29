@@ -58,7 +58,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				colorscheme = { theme = 'ivy' },
 				git_files = { theme = 'ivy' },
 				live_grep = { theme = 'ivy' },
-				lsp_refrences = { theme = 'ivy' },
+				lsp_references = { theme = 'ivy' },
 				commands = { theme = 'ivy' },
 				grep_string = { theme = 'ivy' },
 				current_buffer_fuzzy_find = { theme = 'ivy' },

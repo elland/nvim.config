@@ -61,11 +61,18 @@ return { -- LSP Configuration & Plugins
 
 				-- Opens a popup that displays documentation about the word under your cursor
 				--  See `:help K` for why this keymap.
-				map('K', vim.lsp.buf.hover, 'Hover Documentation')
+				map('K', function()
+					-- Call it twice so we immediately change to the popup.
+					vim.lsp.buf.hover()
+					vim.lsp.buf.hover()
+				end, 'Hover Documentation')
 				-- map('<C-k>', function()
 				--   local params = vim.lsp_util.make_position_params()
 				--   return vim.lsp.buf_request(0, 'textDocument/hover', params, nil)
 				-- end, 'Hover Documentation')
+				map('<leader>lc', require('telescope.builtin').lsp_incoming_calls, '[L]SP incoming [c]alls')
+				map('<leader>lo', require('telescope.builtin').lsp_incoming_calls, '[L]SP [o]utgoing calls')
+
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
