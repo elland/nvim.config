@@ -20,7 +20,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -58,7 +58,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         colorscheme = { theme = 'ivy' },
         git_files = { theme = 'ivy' },
         live_grep = { theme = 'ivy' },
-        lsp_refrences = { theme = 'ivy' },
+        lsp_references = { theme = 'ivy' },
         commands = { theme = 'ivy' },
         grep_string = { theme = 'ivy' },
         current_buffer_fuzzy_find = { theme = 'ivy' },
