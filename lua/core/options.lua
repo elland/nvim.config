@@ -63,7 +63,7 @@ o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 o.inccommand = 'split'
 
--- Show which line your cursor is on
+-- Show which line your cursor is o
 o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
@@ -75,9 +75,9 @@ o.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 o.hlsearch = true
 
--- vim.cmd.colorscheme 'catppuccin-mocha'
--- vim.cmd.colorscheme 'carbonfox'
-vim.cmd.colorscheme 'oxocarbon'
+vim.cmd.colorscheme 'catppuccin-mocha'
+-- vim.cmd.colorscheme 'nightfox'
+-- vim.cmd.colorscheme 'oxocarbon'
 
 -- THICK borders between panes
 o.fillchars = {

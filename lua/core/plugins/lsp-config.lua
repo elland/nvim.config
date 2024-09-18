@@ -143,7 +143,7 @@ return { -- LSP Configuration & Plugins
 
     local lspconfig = require 'lspconfig'
     lspconfig.hls.setup {
-      filetypes = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+      filetypes = { 'haskell', 'lhaskell' },
       plugin = {
         stan = { globalOn = false },
         semanticTokens = { globalOn = true },

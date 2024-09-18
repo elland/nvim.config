@@ -22,8 +22,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 -- Prevet accidental macro
 vim.keymap.set('n', 'Q', '<nop>')
 -- Better quickfix list navigation
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
+vim.keymap.set('n', '<C-p>', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '<C-n>', '<cmd>cprev<CR>zz')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

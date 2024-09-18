@@ -1,14 +1,15 @@
 -- Neogit, magit for neovim
 return {
   'NeogitOrg/neogit',
-  branch = 'nightly',
-  event = 'VeryLazy',
+  branch = 'master',
   dependencies = {
     'nvim-lua/plenary.nvim',         -- required
     'sindrets/diffview.nvim',        -- optional - Diff integration
 
     'nvim-telescope/telescope.nvim', -- optional
+    "ibhagwan/fzf-lua",              -- optional
   },
+  config = true,
   opts = {
     graph_style = 'unicode',
     remember_settings = false,
