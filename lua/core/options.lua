@@ -28,7 +28,7 @@ o.shiftwidth = 2
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
--- o.clipboard = 'unnamedplus'
+o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 o.breakindent = true
