@@ -75,7 +75,8 @@ o.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 o.hlsearch = true
 
-vim.cmd.colorscheme 'catppuccin-mocha'
+vim.cmd.colorscheme 'srcery'
+-- vim.cmd.colorscheme 'catppuccin-mocha'
 -- vim.cmd.colorscheme 'nightfox'
 -- vim.cmd.colorscheme 'oxocarbon'
 

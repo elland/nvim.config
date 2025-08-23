@@ -54,6 +54,8 @@ require('lazy').setup({
     end,
   },
   { 'EdenEast/nightfox.nvim', priority = 1000, lazy = false },
+  { 'srcery-colors/srcery-vim', priority = 1000, lazy = false },
+  { 'rebelot/kanagawa.nvim', priority = 1000, lazy = false },
   { 'wadackel/vim-dogrun', lazy = false },
   { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, lazy = false, opts = ... },
   { 'nyoom-engineering/oxocarbon.nvim', priority = 1000, lazy = false },
