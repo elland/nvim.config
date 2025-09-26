@@ -83,7 +83,7 @@ return {
         
         setup_keymaps(event)
         setup_ui()
-        setup_highlight(event, client)
+        -- setup_highlight(event, client)
         setup_inlay_hints(event, client)
       end,
     })
@@ -103,6 +103,15 @@ return {
 
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            enable = true,
+            command = "check",
+            extraArgs = {"--target-dir", "/tmp/rust/"},
+          },
+        },
+      },
     })
 
     lspconfig.lua_ls.setup({
