@@ -12,7 +12,7 @@ vim.g.have_nerd_font = true
 o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- o.relativenumber = true
+o.relativenumber = true
 
 o.termguicolors = true
 
@@ -76,8 +76,8 @@ o.scrolloff = 10
 o.hlsearch = true
 
 -- vim.cmd.colorscheme 'srcery'
-vim.cmd.colorscheme 'catppuccin-latte'
--- vim.cmd.colorscheme 'nightfox'
+-- vim.cmd.colorscheme 'catppuccin-latte'
+vim.cmd.colorscheme 'nightfox'
 -- vim.cmd.colorscheme 'oxocarbon'
 
 -- THICK borders between panes

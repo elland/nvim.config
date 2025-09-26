@@ -19,8 +19,11 @@ require('lazy').setup({
   { import = 'core.plugins' },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
+  { 'nvim-mini/mini.surround', version = '*' },
+
+
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
 
   -- Prettier UI elements?
   {
@@ -53,14 +56,14 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-  { 'EdenEast/nightfox.nvim', priority = 1000, lazy = false },
-  { 'srcery-colors/srcery-vim', priority = 1000, lazy = false },
-  { 'rebelot/kanagawa.nvim', priority = 1000, lazy = false },
-  { 'wadackel/vim-dogrun', lazy = false },
-  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, lazy = false, opts = ... },
-  { 'nyoom-engineering/oxocarbon.nvim', priority = 1000, lazy = false },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
-  { 'projekt0n/github-nvim-theme', lazy = false, priority = 1000 },
+  { 'EdenEast/nightfox.nvim',           priority = 1000,     lazy = false },
+  { 'srcery-colors/srcery-vim',         priority = 1000,     lazy = false },
+  { 'rebelot/kanagawa.nvim',            priority = 1000,     lazy = false },
+  { 'wadackel/vim-dogrun',              lazy = false },
+  { 'ellisonleao/gruvbox.nvim',         priority = 1000,     config = true,   lazy = false, opts = ... },
+  { 'nyoom-engineering/oxocarbon.nvim', priority = 1000,     lazy = false },
+  { 'catppuccin/nvim',                  name = 'catppuccin', priority = 1000, lazy = false },
+  { 'projekt0n/github-nvim-theme',      lazy = false,        priority = 1000 },
 }, {
   checker = {
     enabled = true,
