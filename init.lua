@@ -21,7 +21,6 @@ require('lazy').setup({
 
   { 'nvim-mini/mini.surround', version = '*' },
 
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',   opts = {} },
 
