@@ -3,6 +3,8 @@ return {
   dependencies = {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
+    -- Allows extra capabilities provided by blink.cmp
+    'saghen/blink.cmp',
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -28,7 +30,7 @@ return {
       map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
       map('<leader>lc', telescope.lsp_incoming_calls, '[L]SP incoming [c]alls')
       map('<leader>lo', telescope.lsp_outgoing_calls, '[L]SP [o]utgoing calls')
-      
+
       map('K', function()
         vim.lsp.buf.hover()
         vim.lsp.buf.hover()
@@ -44,21 +46,21 @@ return {
 
     local function setup_highlight(event, client)
       if not (client and client.server_capabilities.documentHighlightProvider) then return end
-      
+
       local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
-      
+
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = event.buf,
         group = highlight_augroup,
         callback = vim.lsp.buf.document_highlight,
       })
-      
+
       vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
         buffer = event.buf,
         group = highlight_augroup,
         callback = vim.lsp.buf.clear_references,
       })
-      
+
       vim.api.nvim_create_autocmd('LspDetach', {
         group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
         callback = function(detach_event)
@@ -70,17 +72,44 @@ return {
 
     local function setup_inlay_hints(event, client)
       if not (client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint) then return end
-      
+
       vim.keymap.set('n', '<leader>th', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
       end, { buffer = event.buf, desc = 'LSP: [T]oggle Inlay [H]ints' })
     end
 
+    vim.diagnostic.config {
+      severity_sort = true,
+      float = { border = 'rounded', source = 'if_many' },
+      underline = { severity = vim.diagnostic.severity.ERROR },
+      signs = vim.g.have_nerd_font and {
+        text = {
+          [vim.diagnostic.severity.ERROR] = '󰅚 ',
+          [vim.diagnostic.severity.WARN] = '󰀪 ',
+          [vim.diagnostic.severity.INFO] = '󰋽 ',
+          [vim.diagnostic.severity.HINT] = '󰌶 ',
+        },
+      } or {},
+      virtual_text = {
+        source = 'if_many',
+        spacing = 2,
+        format = function(diagnostic)
+          local diagnostic_message = {
+            [vim.diagnostic.severity.ERROR] = diagnostic.message,
+            [vim.diagnostic.severity.WARN] = diagnostic.message,
+            [vim.diagnostic.severity.INFO] = diagnostic.message,
+            [vim.diagnostic.severity.HINT] = diagnostic.message,
+          }
+          return diagnostic_message[diagnostic.severity]
+        end,
+      },
+    }
+
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(event)
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        
+
         setup_keymaps(event)
         setup_ui()
         -- setup_highlight(event, client)
@@ -88,7 +117,7 @@ return {
       end,
     })
 
-    lspconfig.hls.setup({
+    vim.lsp.config('hls', {
       capabilities = capabilities,
       filetypes = { 'haskell', 'lhaskell' },
       settings = {
@@ -100,21 +129,23 @@ return {
         },
       },
     })
+    vim.lsp.enable('hls')
 
-    lspconfig.rust_analyzer.setup({
+    vim.lsp.config('rust_analyzer', {
       capabilities = capabilities,
       settings = {
         ["rust-analyzer"] = {
           checkOnSave = {
             enable = true,
             command = "check",
-            extraArgs = {"--target-dir", "/tmp/rust/"},
+            extraArgs = { "--target-dir", "/tmp/rust/" },
           },
         },
       },
     })
+    vim.lsp.enable('rust_analyzer')
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       capabilities = capabilities,
       settings = {
         Lua = {
@@ -122,8 +153,9 @@ return {
         },
       },
     })
+    vim.lsp.enable('lua_ls')
 
-    lspconfig.helm_ls.setup({
+    vim.lsp.config('helm_ls', {
       capabilities = capabilities,
       settings = {
         ['helm-ls'] = {
@@ -131,6 +163,6 @@ return {
         },
       },
     })
+    vim.lsp.enable('helm_ls')
   end,
 }
-
