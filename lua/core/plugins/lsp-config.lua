@@ -122,9 +122,15 @@ return {
       filetypes = { 'haskell', 'lhaskell' },
       settings = {
         haskell = {
+          formattingProvider = "fourmolu",
           plugin = {
             stan = { globalOn = false },
             semanticTokens = { globalOn = true },
+            fourmolu = {
+              config = {
+                external = true,
+              }
+            }
           },
         },
       },

@@ -77,7 +77,8 @@ o.hlsearch = true
 
 -- vim.cmd.colorscheme 'srcery'
 -- vim.cmd.colorscheme 'catppuccin-latte'
-vim.cmd.colorscheme 'nightfox'
+-- vim.cmd.colorscheme 'nightfox'
+vim.cmd.colorscheme 'dayfox'
 -- vim.cmd.colorscheme 'oxocarbon'
 
 -- THICK borders between panes
